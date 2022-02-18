@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void TryMove(int direction)
     {
-        int newPositionIndex = _currentPositionIndex - direction;
+        int newPositionIndex = _currentPositionIndex + direction;
         if (newPositionIndex >= 0 && newPositionIndex < _positionsToMove.GetPositions().Length)
         {
             _currentPositionIndex = newPositionIndex;
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
         transform.DOMove(newPosition, _moveDuration).SetEase(_moveEase);
         transform.DORotate(_defaultRotation +
-            new Vector3(0f, -direction * _rotateAngleToMovePosition, 0f), _moveRotateDuration).SetEase(_moveEase)
+            new Vector3(0f, direction * _rotateAngleToMovePosition, 0f), _moveRotateDuration).SetEase(_moveEase)
             .OnComplete(() =>
             transform.DORotate(_defaultRotation, _moveRotateDuration).SetEase(_moveEase));
     }

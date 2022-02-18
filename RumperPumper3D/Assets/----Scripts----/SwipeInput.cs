@@ -48,42 +48,6 @@ public class SwipeInput : MonoBehaviour
 
     private void CheckSwipe()
     {
-        ////Check if Vertical swipe
-        //if (verticalMove() > _threshold && verticalMove() > horizontalValMove())
-        //{
-        //    //Debug.Log("Vertical");
-        //    if (_fingerStartPosition.y - _fingerEndPosition.y > 0)//up swipe
-        //    {
-        //        OnSwipeUp();
-        //    }
-        //    else if (_fingerStartPosition.y - _fingerEndPosition.y < 0)//Down swipe
-        //    {
-        //        OnSwipeDown();
-        //    }
-        //    _fingerEndPosition = _fingerStartPosition;
-        //}
-
-        ////Check if Horizontal swipe
-        //else if (horizontalValMove() > _threshold && horizontalValMove() > verticalMove())
-        //{
-        //    //Debug.Log("Horizontal");
-        //    if (_fingerStartPosition.x - _fingerEndPosition.x > 0)//Right swipe
-        //    {
-        //        OnSwipeRight();
-        //    }
-        //    else if (_fingerStartPosition.x - _fingerEndPosition.x < 0)//Left swipe
-        //    {
-        //        OnSwipeLeft();
-        //    }
-        //    _fingerEndPosition = _fingerStartPosition;
-        //}
-
-        ////No Movement at-all
-        //else
-        //{
-        //    //Debug.Log("No Swipe!");
-        //}
-
         if (Vector2.Distance(_fingerStartPosition, _fingerEndPosition) >= _threshold)
         {
             _swipeDirection = _fingerStartPosition - _fingerEndPosition;
@@ -92,7 +56,6 @@ public class SwipeInput : MonoBehaviour
                 if (_swipeDirection.x > 0f) _onSwipeRight?.Invoke(); else _onSwipeLeft?.Invoke();
             else
                 if (_swipeDirection.y > 0f) _onSwipeUp?.Invoke(); else _onSwipeDown?.Invoke();
-            Debug.Log(_swipeDirection);
         }
     }
 }
