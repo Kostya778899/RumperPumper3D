@@ -17,7 +17,7 @@ public class CTimer : MonoBehaviour
     public void Pinpoint() => StartCoroutine(PinpointCorutine());
     public IEnumerator PinpointCorutine()
     {
-        for (float t = 0f; !_time.IsNull && t < _time.Value; t += _stepSize)
+        for (float t = 0f; _time.IsNull || t < (float)_time.Value; t += _stepSize)
         {
             _onStep?.Invoke(t);
 
