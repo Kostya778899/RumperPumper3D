@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: NewRoadTileSettings
   m_EditorClassIdentifier: 
   LetsPrefabs:
-  - {fileID: -4987752619201630623, guid: e9998600c6a59394c8170891b0cf1f22, type: 3}
-  - {fileID: 3725680211273012312, guid: 47e33790ee90932409a8029536a21939, type: 3}
+  - {fileID: 5886110503910341850, guid: dbcbd0cb77e5ccc4b940dc452b39bb28, type: 3}
+  - {fileID: 1660810512152490059, guid: 9d2e4fdd8c5680048b0e6cd4cdfe55dd, type: 3}
+  - {fileID: 989689499914684099, guid: a547fa0a34e25f244bf4115332bbd715, type: 3}
   LetsToSpawnPositions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  LetsToSpawnMinCount: 1
+  - {x: -1.5, y: 0, z: 0}
+  - {x: 1.5, y: 0, z: 0}
+  LetsToSpawnMinCount: 0
   LetsToSpawnMaxCount: 2
