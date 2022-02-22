@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -9,6 +10,7 @@ using UnityEditor;
 public static class CMath
 {
     public static int Place(int length, int index) => index >= length ? index % length : index;
+    public static float Place(float length, float index) => index >= length ? index % length : index;
 
     #region Vector3
     [System.Serializable]
@@ -71,6 +73,13 @@ public static class CMath
         if (a.x > b.x || a.y > b.y || a.z > b.z) return true;
         return false;
     }
+    public static Vector3 Place(this Vector3 vector, float angle)
+    {
+        vector.x = Place(vector.x, angle);
+        vector.y = Place(vector.y, angle);
+        vector.z = Place(vector.z, angle);
+        return vector;
+    }
     #endregion
     #region List
     public static T GetElement<T>(this List<T> value, int index) => value[Place(value.Count, index)];
@@ -81,7 +90,24 @@ public static class CMath
         value.Insert(newIndex, item);
     }
     #endregion
-    #region IEquatable
+    #region Array
     public static T GetRandomElement<T>(this T[] value) => value[UnityEngine.Random.Range(0, value.Length)];
+    #endregion
+    #region LineRenderer
+    public static void SetPositionSmoothly(this LineRenderer lineRenderer, int index, Vector3 value, float duration,
+        Action callback = null) =>
+        DOTween.To(() => lineRenderer.GetPosition(index), x => lineRenderer.SetPosition(index, x), value, duration)
+        .OnComplete(() => callback?.Invoke());
+    public static void SetPositions(this LineRenderer lineRenderer, in Vector3 newPosition) {
+        for (int i = 0; i < lineRenderer.positionCount; i++) lineRenderer.SetPosition(i, newPosition); }
+    public static void SetPositionsSmoothly(this LineRenderer lineRenderer, float duration, Action callback = null,
+        params (int index, Vector3 position)[] value)
+    {
+        int completeSettersCount = 0;
+        foreach (var item in value) lineRenderer.SetPositionSmoothly(item.index, item.position, duration, () =>
+        {
+            if (++completeSettersCount >= value.Length) callback?.Invoke();
+        });
+    }
     #endregion
 }
