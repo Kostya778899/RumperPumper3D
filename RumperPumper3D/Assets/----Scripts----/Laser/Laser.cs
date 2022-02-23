@@ -20,10 +20,8 @@ public class Laser : MonoBehaviour
         //transform.rotation = Quaternion.Euler(Quaternion.LookRotation(transform.position - target).eulerAngles + _defaultRotation);
         //return;
 
-        Debug.Log(Quaternion.LookRotation(transform.position - targetHit.transform.position, transform.rotation.eulerAngles).eulerAngles);
-
-        DOTween.To(() => transform.rotation.eulerAngles, x =>
-        transform.rotation = Quaternion.Euler(x), (Quaternion.LookRotation(transform.position - targetHit.transform.position).eulerAngles + _defaultRotation).Place(360f), 1).OnComplete(() =>
+        Vector3 newRotation = Quaternion.LookRotation(transform.position - targetHit.transform.position).eulerAngles + _defaultRotation;
+        transform.DORotate(newRotation, 1).OnComplete(() =>
         {
             _graphicsRay.SetPositions(_shootPoint.position);
 
