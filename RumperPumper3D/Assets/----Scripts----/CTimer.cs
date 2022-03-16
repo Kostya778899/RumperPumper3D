@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class CTimer : MonoBehaviour
 {
+    [UnityEngine.Serialization.FormerlySerializedAs("_onCompletion")] public UnityEvent OnCompletion;
+
     [SerializeField] private bool _enabledOnStart = true;
     [SerializeField] private NullableVar<float> _time = new NullableVar<float>(30f);
     [Min(0f), SerializeField] private float _stepSize = 1f;
@@ -14,7 +16,6 @@ public class CTimer : MonoBehaviour
     [SerializeField] private UnityEvent<float> _onStep;
     [SerializeField] private UnityEvent<float> _onStep01;
     [SerializeField] private UnityEvent _onPinpoint;
-    [SerializeField] private UnityEvent _onCompletion;
 
 
     public void Pinpoint() => StartCoroutine(PinpointCorutine());
@@ -32,7 +33,7 @@ public class CTimer : MonoBehaviour
             else yield return new WaitForSeconds(_stepSize);
         }
         _onStep01?.Invoke(1f);
-        _onCompletion?.Invoke();
+        OnCompletion?.Invoke();
     }
 
     private void Start() { if (_enabledOnStart) Pinpoint(); }

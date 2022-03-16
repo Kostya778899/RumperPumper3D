@@ -5,6 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using CMath;
 
+[RequireComponent(typeof(CTimer))]
 public class Laser : MonoBehaviour
 {
     [SerializeField] private LaserSettings _settings;
@@ -15,45 +16,48 @@ public class Laser : MonoBehaviour
 
     [SerializeField] private Vector3 _defaultRotation;
 
+    private CTimer _timer;
+    private bool _canShoot = true;
 
-    public void Shoot(RaycastHit targetHit)
+
+    private bool TryShoot(RaycastHit targetHit)
     {
-        //transform.rotation = Quaternion.Euler(Quaternion.LookRotation(transform.position - target).eulerAngles + _defaultRotation);
-        //return;
+        if (!_canShoot) return false;
+        _canShoot = false;
 
-        Vector3 newRotation = Quaternion.LookRotation(transform.position - targetHit.transform.position).eulerAngles + _defaultRotation;
-        transform.DORotate(newRotation, 1).OnComplete(() =>
+        var deActivatable = targetHit.collider.GetComponent<IDeActivatable>();
+
+        Vector3 shootPoint = deActivatable is not null ? targetHit.transform.position : targetHit.point;
+        Vector3 newRotation = Quaternion.LookRotation(transform.position - shootPoint).eulerAngles + _defaultRotation;
+        transform.DORotate(newRotation, _settings.RotateDuration).OnComplete(() =>
         {
             _graphicsRay.SetPositions(_shootPoint.position);
 
-            _graphicsRay.SetPositionSmoothly(1, targetHit.transform.position, _settings.RayAppearanceDuration, () =>
+            _graphicsRay.SetPositionSmoothly(1, shootPoint, _settings.RayAppearanceDuration, () =>
             {
-                _hitEffect.transform.position = targetHit.transform.position;
+                deActivatable?.DeActivate();
+                _timer.Pinpoint();
+
+                _hitEffect.transform.position = shootPoint;
                 _hitEffect.transform.rotation = Quaternion.FromToRotation(Vector3.up, targetHit.normal);
-
-                targetHit.collider.gameObject.GetComponent<DestroyableByLaser>()?.Destroy(targetHit);
-
                 _graphicsRay.SetPositionSmoothly(0, _graphicsRay.GetPosition(1), _settings.RayAppearanceDuration);
+                transform.DORotate(_defaultRotation, _settings.RotateDuration);
             });
         });
+
+        return true;
     }
 
     private void Start()
     {
+        _timer = GetComponent<CTimer>();
+        _timer.OnCompletion.AddListener(() => _canShoot = true);
+
         _graphicsRay.positionCount = 2;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) || (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began))
-        {
-            if (_mouseRaycastInput.Get(out RaycastHit hit))
-            {
-                if (hit.collider.GetComponent<DestroyableByLaser>())
-                {
-                    Shoot(hit);
-                }
-            }
-        }
+        if ((Input.GetKeyDown(KeyCode.Mouse0) || (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)) && _mouseRaycastInput.Get(out RaycastHit hit)) TryShoot(hit);
     }
 }
