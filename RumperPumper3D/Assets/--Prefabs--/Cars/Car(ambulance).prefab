@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4000013716203446}
   - component: {fileID: -4007772813987630697}
   - component: {fileID: -8667179532358416933}
-  - component: {fileID: -3536828819574878230}
+  - component: {fileID: -2834578100737074198}
   m_Layer: 0
   m_Name: Car(ambulance)
   m_TagString: Untagged
@@ -111,8 +111,8 @@ Transform:
   m_GameObject: {fileID: 1000012898607606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2615586456867308458}
   m_Father: {fileID: 0}
@@ -147,7 +147,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.08, z: 2.9}
   m_Center: {x: 0, y: 1.03, z: -0.07}
---- !u!114 &-3536828819574878230
+--- !u!114 &-2834578100737074198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012898607606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55543833b481f5e4f9b38157206a7536, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d9a7967c55f28841b9b3c714618970d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1000013080498018

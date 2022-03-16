@@ -7,10 +7,13 @@ using DG.Tweening;
 using UnityEditor;
 #endif
 
-public static class CMath
+namespace CMath
 {
-    public static int Place(int length, int index) => index >= length ? index % length : index;
-    public static float Place(float length, float index) => index >= length ? index % length : index;
+
+
+    public interface IActivatable { public void Activate(); }
+    public interface IDeActivatable { public void DeActivate(); }
+    public interface IIncluded : IActivatable, IDeActivatable { private void SetActive(bool isActive) { } }
 
     #region Vector3
     [System.Serializable]
@@ -63,51 +66,71 @@ public static class CMath
     }
 
 
-    public static bool IsMore(this Vector3 a, float b)
+    public static class CMath
     {
-        if (a.x > b || a.y > b || a.z > b) return true;
-        return false;
-    }
-    public static bool IsMore(this Vector3 a, Vector3 b)
-    {
-        if (a.x > b.x || a.y > b.y || a.z > b.z) return true;
-        return false;
-    }
-    public static Vector3 Place(this Vector3 vector, float angle)
-    {
-        vector.x = Place(vector.x, angle);
-        vector.y = Place(vector.y, angle);
-        vector.z = Place(vector.z, angle);
-        return vector;
-    }
-    #endregion
-    #region List
-    public static T GetElement<T>(this List<T> value, int index) => value[Place(value.Count, index)];
-    public static void Move<T>(this List<T> value, int oldIndex, int newIndex)
-    {
-        T item = value[oldIndex];
-        value.RemoveAt(oldIndex);
-        value.Insert(newIndex, item);
-    }
-    #endregion
-    #region Array
-    public static T GetRandomElement<T>(this T[] value) => value[UnityEngine.Random.Range(0, value.Length)];
-    #endregion
-    #region LineRenderer
-    public static void SetPositionSmoothly(this LineRenderer lineRenderer, int index, Vector3 value, float duration,
-        Action callback = null) =>
-        DOTween.To(() => lineRenderer.GetPosition(index), x => lineRenderer.SetPosition(index, x), value, duration)
-        .OnComplete(() => callback?.Invoke());
-    public static void SetPositions(this LineRenderer lineRenderer, in Vector3 newPosition) {
-        for (int i = 0; i < lineRenderer.positionCount; i++) lineRenderer.SetPosition(i, newPosition); }
-    public static void SetPositionsSmoothly(this LineRenderer lineRenderer, float duration, Action callback = null,
-        params (int index, Vector3 position)[] value)
-    {
-        int completeSettersCount = 0;
-        foreach (var item in value) lineRenderer.SetPositionSmoothly(item.index, item.position, duration, () =>
+        public static int Place(int length, int index) => index >= length ? index % length : index;
+        public static float Place(float length, float index) => index >= length ? index % length : index;
+
+
+        public static bool IsMore(this Vector3 a, float b)
         {
-            if (++completeSettersCount >= value.Length) callback?.Invoke();
-        });
+            if (a.x > b || a.y > b || a.z > b) return true;
+            return false;
+        }
+        public static bool IsMore(this Vector3 a, Vector3 b)
+        {
+            if (a.x > b.x || a.y > b.y || a.z > b.z) return true;
+            return false;
+        }
+        public static Vector3 Place(this Vector3 vector, float angle)
+        {
+            vector.x = Place(vector.x, angle);
+            vector.y = Place(vector.y, angle);
+            vector.z = Place(vector.z, angle);
+            return vector;
+        }
+        #endregion
+        #region List
+        public static T GetElement<T>(this List<T> value, int index) => value[Place(value.Count, index)];
+        public static void Move<T>(this List<T> value, int oldIndex, int newIndex)
+        {
+            T item = value[oldIndex];
+            value.RemoveAt(oldIndex);
+            value.Insert(newIndex, item);
+        }
+        #endregion
+        #region Array
+        public static T GetRandomElement<T>(this T[] value) => value[UnityEngine.Random.Range(0, value.Length)];
+        #endregion
+        #region LineRenderer
+        public static void SetPositionSmoothly(this LineRenderer lineRenderer, int index, Vector3 value, float duration,
+            Action callback = null) =>
+            DOTween.To(() => lineRenderer.GetPosition(index), x => lineRenderer.SetPosition(index, x), value, duration)
+            .OnComplete(() => callback?.Invoke());
+        public static void SetPositions(this LineRenderer lineRenderer, in Vector3 newPosition)
+        {
+            for (int i = 0; i < lineRenderer.positionCount; i++) lineRenderer.SetPosition(i, newPosition);
+        }
+        public static void SetPositionsSmoothly(this LineRenderer lineRenderer, float duration, Action callback = null,
+            params (int index, Vector3 position)[] value)
+        {
+            int completeSettersCount = 0;
+            foreach (var item in value) lineRenderer.SetPositionSmoothly(item.index, item.position, duration, () =>
+            {
+                if (++completeSettersCount >= value.Length) callback?.Invoke();
+            });
+        }
+        #endregion
     }
-    #endregion
+
+    public static class CAnimationCurve
+    {
+        public static Keyframe GetFirstKey(this AnimationCurve curve) => curve.keys[0];
+        public static Keyframe GetLastKey(this AnimationCurve curve) => curve.keys[curve.length - 1];
+    }
+
+    public class TagSelectorAttribute : PropertyAttribute
+    {
+        public bool UseDefaultTagFieldDrawer = false;
+    }
 }

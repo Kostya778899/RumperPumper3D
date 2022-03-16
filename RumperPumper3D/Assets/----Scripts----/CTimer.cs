@@ -13,12 +13,15 @@ public class CTimer : MonoBehaviour
 
     [SerializeField] private UnityEvent<float> _onStep;
     [SerializeField] private UnityEvent<float> _onStep01;
+    [SerializeField] private UnityEvent _onPinpoint;
     [SerializeField] private UnityEvent _onCompletion;
 
 
     public void Pinpoint() => StartCoroutine(PinpointCorutine());
     public IEnumerator PinpointCorutine()
     {
+        _onPinpoint?.Invoke();
+
         for (float t = 0f; _time.IsNull || t < _time.Value; t += _stepSize)
         {
             _onStep?.Invoke(t);

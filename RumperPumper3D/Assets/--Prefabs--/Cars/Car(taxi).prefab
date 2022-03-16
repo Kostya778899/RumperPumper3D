@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 4000010886805612}
   - component: {fileID: 6199010768569457118}
   - component: {fileID: -8337738318117140915}
-  - component: {fileID: -6512693817174993329}
+  - component: {fileID: -2746263986064829058}
   m_Layer: 0
   m_Name: Car(taxi)
   m_TagString: Untagged
@@ -478,8 +478,8 @@ Transform:
   m_GameObject: {fileID: 1000013875554106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1346055800126749729}
   m_Father: {fileID: 0}
@@ -514,7 +514,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-6512693817174993329
+--- !u!114 &-2746263986064829058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000013875554106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55543833b481f5e4f9b38157206a7536, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d9a7967c55f28841b9b3c714618970d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1343091809898423159

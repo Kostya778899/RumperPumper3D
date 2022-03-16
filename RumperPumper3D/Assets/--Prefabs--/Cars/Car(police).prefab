@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4000011813562294}
   - component: {fileID: 4093541806407968180}
   - component: {fileID: 2532263272098949960}
-  - component: {fileID: -6901560715810842565}
+  - component: {fileID: -2355194697359764831}
   m_Layer: 0
   m_Name: Car(police)
   m_TagString: Untagged
@@ -111,8 +111,8 @@ Transform:
   m_GameObject: {fileID: 1000010847750230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4132853503016216114}
   m_Father: {fileID: 0}
@@ -147,7 +147,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-6901560715810842565
+--- !u!114 &-2355194697359764831
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010847750230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55543833b481f5e4f9b38157206a7536, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d9a7967c55f28841b9b3c714618970d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1000011163423182
