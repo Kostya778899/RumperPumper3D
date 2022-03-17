@@ -8,7 +8,7 @@ public class MousePositionInWorldByRaycastInput : MonoBehaviour
     [SerializeField] private Camera _camera;
 
 
-    public bool Get(out RaycastHit hit) => Get(out hit, out Ray ray);
+    public bool Get(out RaycastHit hit) => Get(out hit, out var ray);
     public bool Get(out RaycastHit hit, out Ray ray)
     {
         ray = _camera.ScreenPointToRay(Input.mousePosition);

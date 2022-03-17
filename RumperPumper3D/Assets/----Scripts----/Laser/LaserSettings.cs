@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Settings/Laser", fileName = "New" + nameof(LaserSettings))]
 public class LaserSettings : ScriptableObject
 {
+    public LineRenderer GraphicsRayPrefab;
     [Min(0f)] public float
         RayDistance = 100f,
         RayAppearanceDuration = 0.1f,
