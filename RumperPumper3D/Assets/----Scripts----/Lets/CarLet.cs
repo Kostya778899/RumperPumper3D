@@ -12,7 +12,7 @@ public class CarLet : Let, IDeActivatable
 
     public void DeActivate()
     {
-        Instantiate(_settings.DestroyParticles, transform.position + _explosionLocalPosition, Quaternion.identity);
+        Instantiate(_settings.DestroyEffectPrefab, transform.position + _explosionLocalPosition, Quaternion.identity);
         this.gameObject.SetActive(false);
     }
 }

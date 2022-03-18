@@ -14,6 +14,7 @@ namespace CMath
     public interface IActivatable { public void Activate(); }
     public interface IDeActivatable { public void DeActivate(); }
     public interface IIncluded : IActivatable, IDeActivatable { private void SetActive(bool isActive) { } }
+    public interface IDeActivatableByLaser : IDeActivatable { }
 
     #region Vector3
     [System.Serializable]
@@ -91,7 +92,7 @@ namespace CMath
         }
         #endregion
         #region List
-        public static T GetElement<T>(this List<T> value, int index) => value[Place(value.Count, index)];
+        public static T Item<T>(this List<T> value, int index) => value[Place(value.Count, index)];
         public static void Move<T>(this List<T> value, int oldIndex, int newIndex)
         {
             T item = value[oldIndex];
@@ -100,7 +101,7 @@ namespace CMath
         }
         #endregion
         #region Array
-        public static T GetRandomElement<T>(this T[] value) => value[UnityEngine.Random.Range(0, value.Length)];
+        public static T RandomItem<T>(this T[] value) => value[UnityEngine.Random.Range(0, value.Length)];
         #endregion
         #region LineRenderer
         public static void SetPositionSmoothly(this LineRenderer lineRenderer, int index, Vector3 value, float duration,

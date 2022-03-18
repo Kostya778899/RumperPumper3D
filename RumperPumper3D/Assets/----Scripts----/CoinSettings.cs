@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Settings/Let/Car")]
-public class CarLetSettings : ScriptableObject
+[CreateAssetMenu(menuName = "Settings/Coin")]
+public class CoinSettings : ScriptableObject
 {
     public GameObject DestroyEffectPrefab;
 }

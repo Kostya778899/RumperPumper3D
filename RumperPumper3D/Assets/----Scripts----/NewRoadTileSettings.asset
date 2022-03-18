@@ -21,6 +21,7 @@ MonoBehaviour:
   - {fileID: 8892004265748583660, guid: f1572d8768053ee48bca3932aa0cba57, type: 3}
   - {fileID: 2904849057462279778, guid: c0b62af4e2aa1784997b0d8342bda36e, type: 3}
   - {fileID: 7244832899179956335, guid: 8a9f72a19661807468b91220432d2f25, type: 3}
+  - {fileID: 8199703368622999580, guid: 6a8ef91f038a4604b91f9adc9e20ee4a, type: 3}
   LetsToSpawnPositions:
   - {x: -1.5, y: 0, z: 0}
   - {x: 1.5, y: 0, z: 0}

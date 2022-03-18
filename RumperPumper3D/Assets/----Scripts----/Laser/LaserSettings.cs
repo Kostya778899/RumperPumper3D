@@ -9,6 +9,7 @@ public class LaserSettings : ScriptableObject
     public LineRenderer GraphicsRayPrefab;
     [Min(0f)] public float
         RayDistance = 100f,
+        RayDuration = 0.1f,
         RayAppearanceDuration = 0.1f,
         RotateDuration = 0.2f,
         RechargeTime = 5f;

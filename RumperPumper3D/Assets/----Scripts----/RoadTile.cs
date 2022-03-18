@@ -20,12 +20,12 @@ public class RoadTile : MonoBehaviour
 
         for (int i = 0; i < letsToSpawnCount; i++)
         {
-            _lets.Add(Instantiate(_settings.LetsPrefabs.GetRandomElement(), transform).GetComponent<Let>());
+            _lets.Add(Instantiate(_settings.LetsPrefabs.RandomItem(), transform).GetComponent<Let>());
         }
         RandomizeLetsPositions(_lets);
     }
     private void RandomizeLetsPositions(List<Let> value) {
-        foreach (var item in value) item.transform.localPosition = _settings.LetsToSpawnPositions.GetRandomElement(); }
+        foreach (var item in value) item.transform.localPosition = _settings.LetsToSpawnPositions.RandomItem(); }
 
     //private void Start() => UpdatingLets();
 }
