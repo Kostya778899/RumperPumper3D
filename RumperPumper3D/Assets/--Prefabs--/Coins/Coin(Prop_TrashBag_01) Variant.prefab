@@ -112,6 +112,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin(Prop_TrashBag_01) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7717945449942936958, guid: ed6ab7dcb55daa14f8d918674b2a3f4a, type: 3}
+      propertyPath: m_Radius
+      value: 0.675
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed6ab7dcb55daa14f8d918674b2a3f4a, type: 3}
 --- !u!4 &3673635774218500694 stripped

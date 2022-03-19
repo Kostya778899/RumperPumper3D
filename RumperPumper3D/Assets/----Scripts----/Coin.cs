@@ -14,7 +14,8 @@ public class Coin : MonoBehaviour, IDeActivatableByLaser
     public void DeActivate()
     {
         _onDeActivate?.Invoke();
-        Instantiate(_settings.DestroyEffectPrefab, transform.position, Quaternion.identity);
+        if (transform.parent) Instantiate(_settings.DestroyEffectPrefab, transform.parent);
+        else Instantiate(_settings.DestroyEffectPrefab, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using CMath;
 
-public class RoadSpawner : MonoBehaviour
+public class RoadSpawner : Spawner
 {
     [SerializeField] private GameSpeedTuner _speedTuner;
     [SerializeField] private RoadTile _roadTilePrefab;
