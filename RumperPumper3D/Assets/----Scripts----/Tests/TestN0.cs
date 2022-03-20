@@ -10,6 +10,6 @@ public class TestN0 : MonoBehaviour
     private void Start()
     {
         _spawner.Updating();
-        for (int i = 0; i < 100; i++) _spawner.Spawn(transform);
+        for (int i = 0; i < 10; i++) _spawner.Spawn();
     }
 }

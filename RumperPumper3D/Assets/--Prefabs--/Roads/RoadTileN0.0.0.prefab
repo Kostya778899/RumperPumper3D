@@ -199,6 +199,40 @@ Transform:
   m_Father: {fileID: 6039306402398796931}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1836798046898128562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3840001915751942239}
+  m_Layer: 0
+  m_Name: SpawnPositions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3840001915751942239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836798046898128562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 4356338347734131809}
+  - {fileID: 6860986023369682160}
+  - {fileID: 504889708162064840}
+  m_Father: {fileID: 6651672180072047642}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1938906182337822144
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +296,68 @@ Transform:
   m_Children:
   - {fileID: 1271053355778418554}
   m_Father: {fileID: 6651672180072047642}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4583863628459567640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6860986023369682160}
+  m_Layer: 0
+  m_Name: PositionN0.0.1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6860986023369682160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4583863628459567640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5, y: 0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 3840001915751942239}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4790430290384168035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4356338347734131809}
+  m_Layer: 0
+  m_Name: PositionN0.0.0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4356338347734131809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4790430290384168035}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 3840001915751942239}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5083865605670285726
@@ -362,6 +458,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &5814357720752712223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 504889708162064840}
+  m_Layer: 0
+  m_Name: PositionN0.0.2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &504889708162064840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5814357720752712223}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 3840001915751942239}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6039306402398796930
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +553,7 @@ Transform:
   - {fileID: 3306975890493509434}
   - {fileID: 6039306402398796931}
   - {fileID: 631157735817659667}
+  - {fileID: 3840001915751942239}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -441,6 +569,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4ecff3bc97c384a977456c80d6399d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _letsSpawner:
+    OnSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    _flows:
+    - _objectsSettings:
+      - _objectPrefab: {fileID: 5886110503910341850, guid: dbcbd0cb77e5ccc4b940dc452b39bb28, type: 3}
+        _spawnProbability: 1
+        _customEnabledPositionsIndexes: 000000000100000002000000
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 1660810512152490059, guid: 9d2e4fdd8c5680048b0e6cd4cdfe55dd, type: 3}
+        _spawnProbability: 0.9
+        _customEnabledPositionsIndexes: 000000000100000002000000
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 989689499914684099, guid: a547fa0a34e25f244bf4115332bbd715, type: 3}
+        _spawnProbability: 0.2
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 7183835785890094486, guid: ca512b53f04c713469504a3cb7b0a815, type: 3}
+        _spawnProbability: 0.8
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 7301278960059566204, guid: 24276032332fcdc4eb8cce6e4b907d53, type: 3}
+        _spawnProbability: 0.8
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 8892004265748583660, guid: f1572d8768053ee48bca3932aa0cba57, type: 3}
+        _spawnProbability: 0.8
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 8199703368622999580, guid: 6a8ef91f038a4604b91f9adc9e20ee4a, type: 3}
+        _spawnProbability: 2
+        _customEnabledPositionsIndexes: 000000000100000002000000
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 1079043520469390003, guid: 3e759dced76c3c04cb6643f284b544b4, type: 3}
+        _spawnProbability: 0.7
+        _customEnabledPositionsIndexes: 02000000
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: -2834578100737074198, guid: c6fd786275d4cdb4abd8effce60cf681, type: 3}
+        _spawnProbability: 0.5
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 2904849057462279778, guid: c0b62af4e2aa1784997b0d8342bda36e, type: 3}
+        _spawnProbability: 0.5
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: -1992867353177890148, guid: 02171a191edcf2443bb2f9a697e0160a, type: 3}
+        _spawnProbability: 0.5
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 7244832899179956335, guid: 8a9f72a19661807468b91220432d2f25, type: 3}
+        _spawnProbability: 0.5
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      _enabledPositionsIndexes: 0000000001000000
+      _notSpawnProbability: 0
+    _spawnPositions:
+    - {fileID: 4356338347734131809}
+    - {fileID: 6860986023369682160}
+    - {fileID: 504889708162064840}
+  _environmentSpawner:
+    OnSpawn:
+      m_PersistentCalls:
+        m_Calls: []
+    _flows: []
+    _spawnPositions: []
   _settings: {fileID: 11400000, guid: 5e9b436ae4c7e854894a8dee65052a36, type: 2}
 --- !u!1 &7025592357200697368
 GameObject:

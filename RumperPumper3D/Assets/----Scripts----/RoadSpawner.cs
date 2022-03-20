@@ -37,7 +37,7 @@ public class RoadSpawner : Spawner
                 if (_roadTiles[i0].transform.localPosition.IsMore(_endRoadTilePosition.localPosition))
                 {
                     _roadTiles.Move(_roadTiles.Count - 1, 0);
-                    _roadTiles[0].UpdatingLets();
+                    _roadTiles[0].Updating();
                     t = 0f;
                     break;
                 }
