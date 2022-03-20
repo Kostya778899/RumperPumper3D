@@ -15,6 +15,7 @@ namespace CMath
     public interface IDeActivatable { public void DeActivate(); }
     public interface IIncluded : IActivatable, IDeActivatable { private void SetActive(bool isActive) { } }
     public interface IDeActivatableByLaser : IDeActivatable { }
+    public interface IUpdatable { public void Updating(); }
 
     #region Vector3
     [System.Serializable]

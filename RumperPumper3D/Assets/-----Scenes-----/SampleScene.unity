@@ -1949,7 +1949,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5, y: 1}
+    m_SensorSize: {x: 0.50044054, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3410,13 +3410,18 @@ MonoBehaviour:
     OnSpawn:
       m_PersistentCalls:
         m_Calls: []
-    _objects:
-      ObjectPrefab: {fileID: 919132149155446097, guid: 6d89ee6ed9c38c146b134bcff96e0946, type: 3}
-      SpawnProbability: 0
-      Flow: 0
-      OnSpawn:
-        m_PersistentCalls:
-          m_Calls: []
+    _flows:
+    - _objectsSettings:
+      - _objectPrefab: {fileID: 919132149155446097, guid: f97a870e164214142a3dbf1f6583a510, type: 3}
+        _spawnProbability: 10
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 919132149155446097, guid: acaff909ddc70fe4689d47979b14082b, type: 3}
+        _spawnProbability: 1
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
 --- !u!4 &1558214925
 Transform:
   m_ObjectHideFlags: 0
