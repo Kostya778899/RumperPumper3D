@@ -8,32 +8,27 @@ using CMath;
 public class RoadTile : MonoBehaviour, IUpdatable
 {
     [SerializeField] private RandomObjectsSpawner<Let> _letsSpawner;
-    [SerializeField] private RandomObjectsSpawner<Let> _environmentSpawner;
+    [SerializeField] private RandomObjectsSpawner<GameObject> _environmentSpawner;
 
     [SerializeField] private RoadTileSettings _settings;
 
     private List<Let> _lets = new(5);
+    private List<GameObject> _environment = new(5);
 
 
     public void Updating()
     {
-        //int letsToSpawnCount = UnityEngine.Random.Range(_settings.LetsToSpawnMinCount, _settings.LetsToSpawnMaxCount);
-
-        //if (_lets != null) foreach (var item in _lets) Destroy(item.gameObject);
-        //_lets = new List<Let>();
-
-        //for (int i = 0; i < letsToSpawnCount; i++)
-        //{
-        //    _lets.Add(Instantiate(_settings.LetsPrefabs.RandomItem(), transform).GetComponent<Let>());
-        //}
-        //RandomizeLetsPositions(_lets);
-
         foreach (var item in _lets) Destroy(item.gameObject);
-        _letsSpawner.Updating();
+        foreach (var item in _environment) Destroy(item.gameObject);
+
         _lets = _letsSpawner.Spawn().ToList();
+        _environment = _environmentSpawner.Spawn().ToList();
     }
-    private void RandomizeLetsPositions(List<Let> value)
+
+    private void Awake()
     {
-        //foreach (var item in value) item.transform.localPosition = _settings.LetsToSpawnPositions.RandomItem();
+        _letsSpawner.Activate();
+        _environmentSpawner.Activate();
+        _environment = _environmentSpawner.Spawn().ToList();
     }
 }

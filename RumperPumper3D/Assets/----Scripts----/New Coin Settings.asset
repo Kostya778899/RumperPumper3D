@@ -12,8 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b964e94ecaa3e80408425a89c37a9e19, type: 3}
   m_Name: New Coin Settings
   m_EditorClassIdentifier: 
-  DestroyEffectPrefab: {fileID: 1812848530920537329, guid: d77a5239e7b58b4408f63c4131b51834, type: 3}
-  GraphicsPrefabs:
-  - {fileID: 919132149155446097, guid: 329369e77b30e5c4d9c682e9e42e88e4, type: 3}
-  - {fileID: 919132149155446097, guid: 115bb14048f77fb44a4b84e568911321, type: 3}
-  - {fileID: 919132149155446097, guid: 9c1d619f8953c1a4291f2fef4d07b8c2, type: 3}
+  DestroyEffectPrefab: {fileID: 451075604283772511, guid: 1296364ee854220418b04bf51ff6c179, type: 3}

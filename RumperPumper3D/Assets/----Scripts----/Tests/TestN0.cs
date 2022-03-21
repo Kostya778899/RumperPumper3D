@@ -9,7 +9,7 @@ public class TestN0 : MonoBehaviour
 
     private void Start()
     {
-        _spawner.Updating();
+        _spawner.Activate();
         for (int i = 0; i < 10; i++) _spawner.Spawn();
     }
 }

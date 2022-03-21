@@ -7,7 +7,7 @@ using Sirenix.OdinInspector;
 using CMath;
 
 [Serializable]
-public class RandomObjectsSpawner<T> : IUpdatable where T : UnityEngine.Object
+public class RandomObjectsSpawner<T> : IActivatable where T : UnityEngine.Object
 {
     public UnityEvent<int> OnSpawn;
 
@@ -17,15 +17,19 @@ public class RandomObjectsSpawner<T> : IUpdatable where T : UnityEngine.Object
 
     private interface ISpawnPosition { public Vector3 Get(); }
 
-    [Serializable] private class Flow : IUpdatable
+    [Serializable] private class Flow : IActivatable
     {
         [SerializeField] private ObjectSettings[] _objectsSettings = null;
         [SerializeField] private int[] _enabledPositionsIndexes = null;
         [Range(0f, 1f), SerializeField] private float _notSpawnProbability = 0f;
+        [Min(1), SerializeField] private int _spawnObjectsCount = 1;
+
+        public int SpawnObjectsCount => _spawnObjectsCount;
+
         private float _generalSpawnProbability = 0f;
 
 
-        public void Updating()
+        public void Activate()
         {
             _generalSpawnProbability = 0f;
             foreach (var item in _objectsSettings) _generalSpawnProbability += item.SpawnProbability;
@@ -78,23 +82,59 @@ public class RandomObjectsSpawner<T> : IUpdatable where T : UnityEngine.Object
     }
 
 
-    public void Updating()
+    public void Activate()
     {
-        foreach (var item in _flows) item.Updating();
+        foreach (var item in _flows) item.Activate();
     }
 
     public T[] Spawn()
     {
         List<T> objects = new(_flows.Length);
 
-        for (int i = 0; i < _flows.Length; i++)
+        foreach (var item in _flows)
         {
-            ObjectSettings objectSettings = _flows[i].GetRandomObjectSettings();
-            if (objectSettings is not null)
+            List<int> busyPositionsIndexes = new(1);
+            Transform GetRandomSpawnPosition(ObjectSettings objectSettings)
             {
-                Transform spawnPosition = _spawnPositions[_flows[i].GetRandomSpawnPositionIndex(objectSettings)];
-                T @object = UnityEngine.Object.Instantiate(objectSettings.ObjectPrefab, spawnPosition);
-                objects.Add(@object);
+                int spawnPositionIndex = 0;
+
+                if (busyPositionsIndexes is not null && busyPositionsIndexes.Count > 0)
+                {
+                    const int attemptsCount = 15;
+                    for (int i0 = 0; i0 < attemptsCount; i0++)
+                    {
+                        spawnPositionIndex = item.GetRandomSpawnPositionIndex(objectSettings);
+
+                        foreach (var item in busyPositionsIndexes)
+                        {
+                            if (item != spawnPositionIndex)
+                            {
+                                busyPositionsIndexes.Add(spawnPositionIndex);
+                                return _spawnPositions[spawnPositionIndex];
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    spawnPositionIndex = item.GetRandomSpawnPositionIndex(objectSettings);
+                    busyPositionsIndexes.Add(spawnPositionIndex);
+                    return _spawnPositions[spawnPositionIndex];
+                }
+
+                Debug.Log("LL");
+                return null;
+            }
+            for (int i = 0; i < item.SpawnObjectsCount; i++)
+            {
+                ObjectSettings objectSettings = item.GetRandomObjectSettings();
+                if (objectSettings is not null)
+                {
+                    //Transform spawnPosition = _spawnPositions[item.GetRandomSpawnPositionIndex(objectSettings)];
+                    Transform spawnPosition = GetRandomSpawnPosition(objectSettings) ?? _spawnPositions[0];
+                    T @object = UnityEngine.Object.Instantiate(objectSettings.ObjectPrefab, spawnPosition);
+                    objects.Add(@object);
+                }
             }
         }
 
