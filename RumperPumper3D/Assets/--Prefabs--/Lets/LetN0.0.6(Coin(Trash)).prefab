@@ -522,6 +522,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7717945449942936945, guid: ed6ab7dcb55daa14f8d918674b2a3f4a, type: 3}
+      propertyPath: _deActivateEffectSizeCoefficient
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717945449942936945, guid: ed6ab7dcb55daa14f8d918674b2a3f4a, type: 3}
       propertyPath: _onDeActivate.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}

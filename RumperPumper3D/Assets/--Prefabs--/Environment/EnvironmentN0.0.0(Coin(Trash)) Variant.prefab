@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3673635773043192160, guid: b4581a96137c9f64fa6507b60448899a, type: 3}
+      propertyPath: _deActivateEffectSizeCoefficient
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3673635773043192161, guid: b4581a96137c9f64fa6507b60448899a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -57,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3673635773043192162, guid: b4581a96137c9f64fa6507b60448899a, type: 3}
       propertyPath: m_Name
-      value: EnvironmentN0.0.0(Coin(Trash))
+      value: EnvironmentN0.0.0(Coin(Trash)) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3673635773043192173, guid: b4581a96137c9f64fa6507b60448899a, type: 3}
       propertyPath: m_Center.y

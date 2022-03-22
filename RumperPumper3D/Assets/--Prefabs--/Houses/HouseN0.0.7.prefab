@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3045090542666785758
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2661361574085495678, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 2661361574867685978, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661361574867685978, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661361574867685978, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661361574867685978, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661361574867685978, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661361574867685978, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661361574867685978, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661361574867685978, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661361574867685978, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661361574867685978, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661361574867685978, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661361574867685979, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+      propertyPath: m_Name
+      value: HouseN0.0.6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+--- !u!23 &1057602605036054688 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2661361574085495678, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+  m_PrefabInstance: {fileID: 3045090542666785758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1057602605036054691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2661361574085495677, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+  m_PrefabInstance: {fileID: 3045090542666785758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &163294947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057602605036054691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17ffe899bb191446bbc8d75ea439184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeshRenderer: {fileID: 1057602605036054688}
+  _colors:
+    serializedVersion: 2
+    key0: {r: 0, g: 0.07816567, b: 0.7058824, a: 1}
+    key1: {r: 0.7058824, g: 0.0069742715, b: 0, a: 1}
+    key2: {r: 0.0991299, g: 0.7058824, b: 0, a: 0}
+    key3: {r: 0.7058824, g: 0, b: 0.5717374, a: 0}
+    key4: {r: 0.9607843, g: 0.9607843, b: 0, a: 0}
+    key5: {r: 0, g: 0.9607843, b: 0.86691624, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 13107
+    ctime1: 26214
+    ctime2: 39321
+    ctime3: 49151
+    ctime4: 58982
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2
+  _updatingOnAwake: 1
+  _onUpdatingColor:
+    m_PersistentCalls:
+      m_Calls: []

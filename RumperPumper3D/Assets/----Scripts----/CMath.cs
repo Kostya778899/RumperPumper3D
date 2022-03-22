@@ -125,10 +125,20 @@ namespace CMath
         #endregion
     }
 
+    public static class CConvert
+    {
+        public static Vector3 ToVector3(float value) => new Vector3(value, value, value);
+    }
+
     public static class CAnimationCurve
     {
         public static Keyframe GetFirstKey(this AnimationCurve curve) => curve.keys[0];
         public static Keyframe GetLastKey(this AnimationCurve curve) => curve.keys[curve.length - 1];
+    }
+
+    public static class CVector
+    {
+
     }
 
     public class TagSelectorAttribute : PropertyAttribute

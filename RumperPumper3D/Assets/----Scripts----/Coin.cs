@@ -8,14 +8,20 @@ using CMath;
 public class Coin : MonoBehaviour, IDeActivatableByLaser
 {
     [SerializeField] private CoinSettings _settings;
+    [Min(0f), SerializeField] private float _deActivateEffectSizeCoefficient = 1f;
     [SerializeField] private UnityEvent _onDeActivate;
 
 
     public void DeActivate()
     {
         _onDeActivate?.Invoke();
-        if (transform.parent) Instantiate(_settings.DestroyEffectPrefab, transform.parent);
-        else Instantiate(_settings.DestroyEffectPrefab, transform.position, Quaternion.identity);
+        SpawnDeActivateEffect().transform.localScale *= _deActivateEffectSizeCoefficient;
         Destroy(this.gameObject);
+    }
+
+    private GameObject SpawnDeActivateEffect()
+    {
+        if (transform.parent) return Instantiate(_settings.DestroyEffectPrefab, transform.parent);
+        return Instantiate(_settings.DestroyEffectPrefab, transform.position, Quaternion.identity);
     }
 }

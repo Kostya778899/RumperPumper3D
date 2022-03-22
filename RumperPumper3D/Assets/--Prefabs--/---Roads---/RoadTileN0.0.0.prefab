@@ -1012,6 +1012,24 @@ MonoBehaviour:
         _onSpawn:
           m_PersistentCalls:
             m_Calls: []
+      - _objectPrefab: {fileID: 2661361574867685979, guid: e5dc041026ed5fa4d989626ea7bf1c51, type: 3}
+        _spawnProbability: 0.3
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 2528026065733785740, guid: e5d24d2b3141e804c86341e9aa829f90, type: 3}
+        _spawnProbability: 0.3
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 1057602605801468293, guid: 5f307986d72b4ef48aa592bc55efc3da, type: 3}
+        _spawnProbability: 1.5
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
       _enabledPositionsIndexes: 0000000001000000
       _notSpawnProbability: 0
       _spawnObjectsCount: 2
