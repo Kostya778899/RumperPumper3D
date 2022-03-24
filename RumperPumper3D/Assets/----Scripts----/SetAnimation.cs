@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CMath;
 
-public class ActivateAnimation : MonoBehaviour, IActivatable
+public class SetAnimation : MonoBehaviour, IActivatable
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private AnimationClip _animation;
