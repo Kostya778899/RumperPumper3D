@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class PlayerStatistics : MonoBehaviour
 {
-    //[SerializeField] private PlayerKill _kill;
-    [SerializeField] private Score _currentScore, _highScore;
+    [SerializeField] private Score _currentScore, _highScore, _coinsScore;
 
 
     public void UpdatingScoresTexts()
@@ -16,9 +15,9 @@ public class PlayerStatistics : MonoBehaviour
     }
     public void TryUpdatingScores(int value) => _currentScore.TrySetScore(value);
 
-    public void AddToCurrentScore(int value) => TryUpdatingScores(_currentScore.Value + value);
+    public void AddToCurrentScore(int value) => TryUpdatingScores(_currentScore.Score_ + value);
 
-    //private void Start() => _kill.OnKill.AddListener(OnEndSession);
+    public void AddCoins(int value) => _coinsScore.TrySetScore(_coinsScore.Score_ + value);
 
-    public void OnEndSession() => _highScore.TrySetScore(_currentScore.Value);
+    public void OnEndSession() => _highScore.TrySetScore(_currentScore.Score_);
 }

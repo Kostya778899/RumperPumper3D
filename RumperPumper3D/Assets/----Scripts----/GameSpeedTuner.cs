@@ -15,6 +15,7 @@ public class GameSpeedTuner : MonoBehaviour, CMath.IIncluded
     [SerializeField] private PauseGameChanger _pauseChanger;
 
     [SerializeField] private AnimationCurve _gameSpeedCurve;
+    [SerializeField] private float _gameSpeedCoefficient = 1f;
     [SerializeField] private float _tuneGameSpeedDuration = 60f;
 
     private Sequence _sequence;
@@ -30,13 +31,13 @@ public class GameSpeedTuner : MonoBehaviour, CMath.IIncluded
 
     private void Start()
     {
-        _speed = (_gameSpeedCurve.GetFirstKey().value, _gameSpeedCurve.GetLastKey().value);
+        _speed = (_gameSpeedCurve.GetFirstKey().value * _gameSpeedCoefficient, _gameSpeedCurve.GetLastKey().value * _gameSpeedCoefficient);
 
         _pauseChanger.OnPause += DeActivate;
         _pauseChanger.OnResume += Activate;
 
         OnUpdateGameProgress.AddListener((float value) => OnUpdateGameProgress01.Invoke(Mathf.InverseLerp(_speed.InStart, _speed.InEnd, value)));
-        OnUpdateGameProgress01.AddListener((float value) => OnUpdateGameSpeed?.Invoke(_gameSpeedCurve.Evaluate(value)));
+        OnUpdateGameProgress01.AddListener((float value) => OnUpdateGameSpeed?.Invoke(_gameSpeedCurve.Evaluate(value) * _gameSpeedCoefficient));
 
         _sequence = DOTween.Sequence();
         _sequence.Append(DOTween.To(() => _speed.InStart, x => OnUpdateGameProgress.Invoke(x), _speed.InEnd, _tuneGameSpeedDuration).SetEase(Ease.Linear));

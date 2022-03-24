@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using DG.Tweening;
 using CMath;
 
@@ -14,6 +15,7 @@ public class Laser : MonoBehaviour
     [SerializeField] private Transform _hitEffect;
 
     [SerializeField] private Vector3 _defaultRotation;
+    [SerializeField] private UnityEvent<IDeActivatableByLaser> _onDeActivateObject;
 
     private Coroutine _shoot = null;
     private bool _isShooting = false;
@@ -41,6 +43,7 @@ public class Laser : MonoBehaviour
                 IEnumerator OnVisuallyHit()
                 {
                     deActivatable?.DeActivate();
+                    _onDeActivateObject?.Invoke(deActivatable);
                     yield return new WaitForSeconds(_settings.RayDuration);
                     _graphicsRay.SetPositionSmoothly(0, _graphicsRay.GetPosition(1), _settings.RayAppearanceDuration, () => _isShooting = false);
                 }

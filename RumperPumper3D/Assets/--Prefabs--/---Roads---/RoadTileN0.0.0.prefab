@@ -1030,6 +1030,18 @@ MonoBehaviour:
         _onSpawn:
           m_PersistentCalls:
             m_Calls: []
+      - _objectPrefab: {fileID: 950444514846950732, guid: 9d4c5356681e769498e1e5dd7a205e72, type: 3}
+        _spawnProbability: 0.5
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 4330224608219681075, guid: ce23f4b79e5b0744c8ddfcb63c3ab4d2, type: 3}
+        _spawnProbability: 1
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
       _enabledPositionsIndexes: 0000000001000000
       _notSpawnProbability: 0
       _spawnObjectsCount: 2
@@ -1041,6 +1053,12 @@ MonoBehaviour:
           m_PersistentCalls:
             m_Calls: []
       - _objectPrefab: {fileID: 2613396103757013178, guid: 69bb792e84092ff43828b5f08722d676, type: 3}
+        _spawnProbability: 0.2
+        _customEnabledPositionsIndexes: 
+        _onSpawn:
+          m_PersistentCalls:
+            m_Calls: []
+      - _objectPrefab: {fileID: 3678689212109897638, guid: 6a8ef91f038a4604b91f9adc9e20ee4a, type: 3}
         _spawnProbability: 0.2
         _customEnabledPositionsIndexes: 
         _onSpawn:

@@ -3,12 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using DG.Tweening.Core;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
+/// <summary>
+/// LOL.
+/// </summary>
+
 namespace CMath
 {
+    public delegate T CGetter<T>();
 
 
     public interface IActivatable { public void Activate(); }
@@ -16,6 +22,7 @@ namespace CMath
     public interface IIncluded : IActivatable, IDeActivatable { private void SetActive(bool isActive) { } }
     public interface IDeActivatableByLaser : IDeActivatable { }
     public interface IUpdatable { public void Updating(); }
+
 
     #region Vector3
     [System.Serializable]
@@ -138,7 +145,7 @@ namespace CMath
 
     public static class CVector
     {
-
+        public static Vector3 SetXYZ(CGetter<float> value) => new Vector3(value.Invoke(), value.Invoke(), value.Invoke());
     }
 
     public class TagSelectorAttribute : PropertyAttribute

@@ -20,6 +20,6 @@ public class ScoreSaved : Score
         Load();
     }
 
-    private void Save() => PlayerPrefs.SetInt(_saveKey, Value);
-    private void Load() => Value = PlayerPrefs.GetInt(_saveKey, _defaultValue);
+    private void Save() => PlayerPrefs.SetInt(_saveKey, Score_);
+    private void Load() => Score_ = PlayerPrefs.GetInt(_saveKey, _defaultValue);
 }
