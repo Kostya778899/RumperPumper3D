@@ -656,8 +656,8 @@ RectTransform:
   m_Children:
   - {fileID: 1088076738}
   - {fileID: 1270013226}
-  - {fileID: 798198035}
   - {fileID: 734761824}
+  - {fileID: 798198035}
   - {fileID: 1090233230}
   m_Father: {fileID: 1354234296}
   m_RootOrder: 1
@@ -702,7 +702,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8608325724000389600, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
       propertyPath: m_Name
-      value: InfoButtonN0.0.2
+      value: InfoButtonN0.0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8608325724000389603, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
       propertyPath: m_Pivot.x
@@ -714,7 +714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608325724000389603, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8608325724000389603, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -788,9 +788,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8608325724964623052, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fba5cd5196b27da418f8f905362fc9de, type: 3}
     - target: {fileID: 8608325725574223769, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
       propertyPath: m_text
-      value: Gmail
+      value: GitHub
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
@@ -808,7 +812,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8608325724000389600, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
       propertyPath: m_Name
-      value: InfoButtonN0.0.1
+      value: InfoButtonN0.0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8608325724000389603, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
       propertyPath: m_Pivot.x
@@ -820,7 +824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608325724000389603, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8608325724000389603, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1223,6 +1227,22 @@ PrefabInstance:
     - target: {fileID: 8608325724000389603, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608325724964623052, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f89893ecd4e7d7f4081a9d058f242ad0, type: 3}
+    - target: {fileID: 8608325724964623052, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608325724964623052, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608325724964623052, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8608325725574223769, guid: 913b4c74dbbcc714f8de08845882e7b3, type: 3}
       propertyPath: m_text
