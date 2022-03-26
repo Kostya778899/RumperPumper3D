@@ -1,16 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using DG.Tweening;
 using DG.Tweening.Core;
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEditor.SceneManagement;
 #endif
-
-/// <summary>
-/// LOL.
-/// </summary>
 
 namespace CMath
 {
@@ -22,9 +20,64 @@ namespace CMath
     public interface IIncluded : IActivatable, IDeActivatable { private void SetActive(bool isActive) { } }
     public interface IDeActivatableByLaser : IDeActivatable { }
     public interface IUpdatable { public void Updating(); }
+    public interface ISaveable<T> { public T Get(); public void Set(in T value); }
 
 
-    #region Vector3
+    public static class CMath
+    {
+        public static int GetScroller(int index, int length) { return index < length ? index : index % length; }
+    }
+    public static class CConvert
+    {
+        public static Vector3 ToVector3(float value) => new Vector3(value, value, value);
+    }
+    public static class CArray
+    {
+        public static T RandomItem<T>(this T[] value) => value[UnityEngine.Random.Range(0, value.Length)];
+    }
+    public static class CList
+    {
+        //public static T Item<T>(this List<T> value, int index) => value[Place(value.Count, index)];
+        public static void Move<T>(this List<T> value, int oldIndex, int newIndex)
+        {
+            T item = value[oldIndex];
+            value.RemoveAt(oldIndex);
+            value.Insert(newIndex, item);
+        }
+        public static List<T> Equate<T>(List<T> list)
+        {
+            if (list == null) return null;
+            List<T> newList = new List<T>(list.Count);
+            for (int i = 0; i < list.Count; i++) newList.Add(list[i]);
+            return newList;
+        }
+    }
+    public static class CAnimationCurve
+    {
+        public static Keyframe GetFirstKey(this AnimationCurve curve) => curve.keys[0];
+        public static Keyframe GetLastKey(this AnimationCurve curve) => curve.keys[curve.length - 1];
+    }
+    public static class CLineRenderer
+    {
+        public static void SetPositionSmoothly(this LineRenderer lineRenderer, int index, Vector3 value, float duration,
+            Action callback = null) =>
+            DOTween.To(() => lineRenderer.GetPosition(index), x => lineRenderer.SetPosition(index, x), value, duration)
+            .OnComplete(() => callback?.Invoke());
+        public static void SetPositions(this LineRenderer lineRenderer, in Vector3 newPosition)
+        {
+            for (int i = 0; i < lineRenderer.positionCount; i++) lineRenderer.SetPosition(i, newPosition);
+        }
+        public static void SetPositionsSmoothly(this LineRenderer lineRenderer, float duration, Action callback = null,
+            params (int index, Vector3 position)[] value)
+        {
+            int completeSettersCount = 0;
+            foreach (var item in value) lineRenderer.SetPositionSmoothly(item.index, item.position, duration, () =>
+            {
+                if (++completeSettersCount >= value.Length) callback?.Invoke();
+            });
+        }
+    }
+    #region Vector
     [System.Serializable]
     public class Vector3Bool
     {
@@ -73,9 +126,7 @@ namespace CMath
         }
 #endif
     }
-
-
-    public static class CMath
+    public static class CVector
     {
         public static int Place(int length, int index) => index >= length ? index % length : index;
         public static float Place(float length, float index) => index >= length ? index % length : index;
@@ -98,55 +149,21 @@ namespace CMath
             vector.z = Place(vector.z, angle);
             return vector;
         }
-        #endregion
-        #region List
-        public static T Item<T>(this List<T> value, int index) => value[Place(value.Count, index)];
-        public static void Move<T>(this List<T> value, int oldIndex, int newIndex)
-        {
-            T item = value[oldIndex];
-            value.RemoveAt(oldIndex);
-            value.Insert(newIndex, item);
-        }
-        #endregion
-        #region Array
-        public static T RandomItem<T>(this T[] value) => value[UnityEngine.Random.Range(0, value.Length)];
-        #endregion
-        #region LineRenderer
-        public static void SetPositionSmoothly(this LineRenderer lineRenderer, int index, Vector3 value, float duration,
-            Action callback = null) =>
-            DOTween.To(() => lineRenderer.GetPosition(index), x => lineRenderer.SetPosition(index, x), value, duration)
-            .OnComplete(() => callback?.Invoke());
-        public static void SetPositions(this LineRenderer lineRenderer, in Vector3 newPosition)
-        {
-            for (int i = 0; i < lineRenderer.positionCount; i++) lineRenderer.SetPosition(i, newPosition);
-        }
-        public static void SetPositionsSmoothly(this LineRenderer lineRenderer, float duration, Action callback = null,
-            params (int index, Vector3 position)[] value)
-        {
-            int completeSettersCount = 0;
-            foreach (var item in value) lineRenderer.SetPositionSmoothly(item.index, item.position, duration, () =>
-            {
-                if (++completeSettersCount >= value.Length) callback?.Invoke();
-            });
-        }
-        #endregion
-    }
 
-    public static class CConvert
-    {
-        public static Vector3 ToVector3(float value) => new Vector3(value, value, value);
-    }
-
-    public static class CAnimationCurve
-    {
-        public static Keyframe GetFirstKey(this AnimationCurve curve) => curve.keys[0];
-        public static Keyframe GetLastKey(this AnimationCurve curve) => curve.keys[curve.length - 1];
-    }
-
-    public static class CVector
-    {
         public static Vector3 SetXYZ(CGetter<float> value) => new Vector3(value.Invoke(), value.Invoke(), value.Invoke());
     }
+    #endregion
+#if UNITY_EDITOR
+    public class CEditor
+    {
+        public static void SetObjectDirty(GameObject @object)
+        {
+            EditorUtility.SetDirty(@object);
+            EditorSceneManager.MarkSceneDirty(@object.scene);
+        }
+    }
+#endif
+
 
     public class TagSelectorAttribute : PropertyAttribute
     {
