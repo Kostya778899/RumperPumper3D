@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GraphicsRayPrefab: {fileID: 3573853003068632793, guid: 44c0bdc88a3639c4f942744e59cdd518, type: 3}
   RayDistance: 100
-  RayDuration: 0.2
+  RayDuration: 0.08
   RayAppearanceDuration: 0.05
-  RotateDuration: 0.1
-  RechargeTime: 5
+  RotateDuration: 0.08
+  RechargeTime: 4

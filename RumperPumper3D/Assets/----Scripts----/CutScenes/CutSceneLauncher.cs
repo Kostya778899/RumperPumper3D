@@ -21,7 +21,7 @@ public class CutSceneLauncher : ScriptableObject
         _currentCutSceneSettings = _cutScenesContainer.Get(index);
         _currentCallback = callback;
     }
-    public void StartCutScene(in string name, Action callback = null) => StartCutScene(_cutScenesContainer.IndexOf(name));
+    public void StartCutScene(in string name, Action callback = null) => StartCutScene(_cutScenesContainer.IndexOf(name), callback);
     public void StartCutScene_(int index) => StartCutScene(index);
     public void StartCutScene_(string name) => StartCutScene(name);
 

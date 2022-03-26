@@ -13,7 +13,7 @@ public class StartGameButton : SceneLoader, IActivatable
 
     public void Activate()
     {
-        if (_isFirstLoad.Get()) _cutSceneLauncher.StartCutScene(_firstLoadGameCutSceneName);
+        if (_isFirstLoad.Get()) _cutSceneLauncher.StartCutScene(_firstLoadGameCutSceneName, () => LoadScene(_gameSceneName));
         else LoadScene(_gameSceneName);
     }
 }

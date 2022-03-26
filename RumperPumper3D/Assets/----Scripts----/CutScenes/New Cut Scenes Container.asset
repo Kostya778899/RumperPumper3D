@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cutScenesSettings:
   - _name: Backstory
-    _prefab: {fileID: 919132149155446097, guid: 81724618f79c76d4d820c499762eaf44, type: 3}
+    _target: {fileID: 4351470992916813019, guid: 88b2492e6fc166d4c88d0b30b33a845b, type: 3}
   - _name: Burgers!!!
-    _prefab: {fileID: 1000013875554106, guid: 067c6a3954aec2241850a3bbbf3b0773, type: 3}
+    _target: {fileID: 4351470992916813019, guid: 88b2492e6fc166d4c88d0b30b33a845b, type: 3}

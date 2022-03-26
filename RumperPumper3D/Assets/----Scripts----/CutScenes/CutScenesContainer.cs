@@ -13,10 +13,10 @@ public class CutScenesContainer : ScriptableObject
     public struct CutSceneSettings
     {
         [SerializeField] private string _name;
-        [SerializeField] private GameObject _prefab;
+        [SerializeField] private CutScene _target;
 
         public string Name => _name;
-        public GameObject Prefab => _prefab;
+        public CutScene Target => _target;
     }
 
 
