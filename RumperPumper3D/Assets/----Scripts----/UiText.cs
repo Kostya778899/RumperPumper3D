@@ -22,7 +22,7 @@ public class UiText : MonoBehaviour
     public void SetValueField(string value) => TrySetText(_textPattern.Replace(_valueField, value));
     public void SetValueField(int value) => SetValueField(value.ToString());
 
-    private void OnEnable()
+    private void Awake()
     {
         if (!_uiText) _uiText = GetComponent<TMP_Text>();
         //TrySetText(_textPattern);
