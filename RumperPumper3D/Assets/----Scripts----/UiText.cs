@@ -25,6 +25,6 @@ public class UiText : MonoBehaviour
     private void OnEnable()
     {
         if (!_uiText) _uiText = GetComponent<TMP_Text>();
-        TrySetText(_textPattern);
+        //TrySetText(_textPattern);
     }
 }
