@@ -6,16 +6,21 @@ using UnityEngine;
 using UnityEngine.Events;
 using CMath;
 
-public class CutScene : MonoBehaviour, IActivatable
+public class CutScene : MonoBehaviour, IIncluded
 {
-    public UnityEvent OnStart;
-    public UnityEvent OnComplete;
+    public UnityEvent OnActivate, OnDeActivate;
 
 
-    public async void Activate()
+    public void Activate()
     {
-        OnStart?.Invoke();
-        await Task.Delay(5000);
-        OnComplete?.Invoke();
+
+
+        OnActivate?.Invoke();
+    }
+    public void DeActivate()
+    {
+
+
+        OnDeActivate?.Invoke();
     }
 }

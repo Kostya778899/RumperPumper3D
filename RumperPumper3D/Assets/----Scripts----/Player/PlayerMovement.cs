@@ -15,12 +15,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _rotateAngleToMovePosition = 15f;
     [SerializeField] private Vector3 _defaultRotation = Vector3.zero;
     [SerializeField] private Ease _moveEase = Ease.InOutSine;
-    //[SerializeField] private float _jumpHeight = 2f;
+    [SerializeField] private float _jumpHeight = 2f;
     [SerializeField] private float _jumpDuration = 1f;
     [SerializeField] private AnimationCurve _jumpCurve;
 
     private Rigidbody _rigidbody;
     private int _currentPositionIndex = 0;
+    private bool _isJumping = false;
 
 
     public void TryMove(int direction)
@@ -32,10 +33,13 @@ public class PlayerMovement : MonoBehaviour
             Move(_currentPositionIndex, direction);
         }
     }
-
-    public void Jump()
+    public void TryJump()
     {
-        transform.DOMoveY(/*transform.position.y*/2, _jumpDuration).SetEase(_jumpCurve);
+        if (!_isJumping)
+        {
+            _isJumping = true;
+            Jump(() => _isJumping = false);
+        }
     }
 
     private void Move(int newPositionIndex, int direction)
@@ -51,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
             .OnComplete(() =>
             transform.DORotate(_defaultRotation, _moveRotateDuration).SetEase(_moveEase));
     }
+    private void Jump(Action callback) => transform.DOMoveY(_jumpHeight, _jumpDuration).SetEase(_jumpCurve).OnComplete(() => callback?.Invoke());
 
     private void Start()
     {
