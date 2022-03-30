@@ -12,5 +12,5 @@ public class SaveBool : ScriptableObject, ISaveable<bool>
 
 
     public bool Get() => Convert.ToBoolean(PlayerPrefs.GetInt(_saveKey, Convert.ToInt32(_defaultValue)));
-    public void Set(in bool value) => PlayerPrefs.SetInt(_saveKey, Convert.ToInt32(value));
+    public void Set(bool value) => PlayerPrefs.SetInt(_saveKey, Convert.ToInt32(value));
 }

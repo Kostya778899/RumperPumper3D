@@ -42,7 +42,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Move(int newPositionIndex, int direction)
+    private void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+
+        Move(0, 0);
+    }
+
+    private void Move(int newPositionIndex, int RotateDirection)
     {
         Vector3 newPosition = _positionsToMove.GetPositions()[newPositionIndex].position;
 
@@ -51,16 +58,9 @@ public class PlayerMovement : MonoBehaviour
         if (_moveEnabledAxis.z) transform.DOMoveZ(newPosition.z, _moveDuration).SetEase(_moveEase);
 
         transform.DORotate(_defaultRotation +
-            new Vector3(0f, direction * _rotateAngleToMovePosition, 0f), _moveRotateDuration).SetEase(_moveEase)
+            new Vector3(0f, RotateDirection * _rotateAngleToMovePosition, 0f), _moveRotateDuration).SetEase(_moveEase)
             .OnComplete(() =>
             transform.DORotate(_defaultRotation, _moveRotateDuration).SetEase(_moveEase));
     }
     private void Jump(Action callback) => transform.DOMoveY(_jumpHeight, _jumpDuration).SetEase(_jumpCurve).OnComplete(() => callback?.Invoke());
-
-    private void Start()
-    {
-        _rigidbody = GetComponent<Rigidbody>();
-
-        Move(0, 0);
-    }
 }

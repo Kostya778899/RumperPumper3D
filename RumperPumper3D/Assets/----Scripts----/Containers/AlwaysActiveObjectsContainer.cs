@@ -4,19 +4,17 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using CMath;
 
 [CreateAssetMenu(menuName = "Containers/AlwaysActiveObjects")]
-public class AlwaysActiveObjectsContainer : ScriptableObject
+public class AlwaysActiveObjectsContainer : ScriptableObject, IActivatable
 {
     [SerializeField] private GameObject[] _alwaysActiveObjectsPrefabs;
 
     [NonSerialized] private GameObject[] _alwaysActiveObjects;
     [NonSerialized] private bool _isActivated = false;
 
-
-    private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    public void Activate()
     {
         if (_isActivated) return;
         _isActivated = true;

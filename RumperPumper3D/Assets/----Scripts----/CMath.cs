@@ -20,7 +20,7 @@ namespace CMath
     public interface IIncluded : IActivatable, IDeActivatable { private void SetActive(bool isActive) { } }
     public interface IDeActivatableByLaser : IDeActivatable { }
     public interface IUpdatable { public void Updating(); }
-    public interface ISaveable<T> { public T Get(); public void Set(in T value); }
+    public interface ISaveable<T> { public T Get(); public void Set(T value); }
 
 
     public static class CMath
