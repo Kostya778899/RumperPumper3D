@@ -17,6 +17,8 @@ public class GameEventsTuner : MonoBehaviour
 
     public void TrySetNextState(float progress)
     {
+        Debug.Log(progress);
+
         int nextStateIndex = _states.GetCurrentStateIndex() + 1;
         if (nextStateIndex >= _states.States.Length) return;
 
